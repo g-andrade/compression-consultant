@@ -20,12 +20,12 @@ parse_args(Args) ->
 
 run_benchmarks(PacketLogPaths, Runs) ->
     Benchmarks = [
-                  {zlib, stateful, [{threshold, infinity}]},
-                  {zlib, stateless, [{level, 9}, {memlevel, 9}]},
-                  {zlib, stateless, []},
-                  {zlib, stateful, []},
-                  {zlib, stateful, [{strategy, huffman_only}]},
-                  {zlib, stateful, [{strategy, filtered}]}
+                  %{zlib, stateful, [{threshold, infinity}]},
+                  %{zlib, stateless, [{level, 9}, {memlevel, 9}]},
+                  {zlib, stateless, [{threshold, 30}]},
+                  {zlib, stateful, [{threshold, 30}]}
+                  %{zlib, stateful, [{strategy, huffman_only}]},
+                  %{zlib, stateful, [{strategy, filtered}]}
                  ],
     lists:foreach(
       fun (Benchmark) ->
