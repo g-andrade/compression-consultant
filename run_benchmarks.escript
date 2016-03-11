@@ -171,7 +171,13 @@ benchmark_terminate({zlib, stateful, _Params}, ZStream) ->
 optional_compression_fun(Fun, Packet, Params) ->
     Threshold = proplists:get_value(threshold, Params, ?DEFAULT_COMPRESSION_THRESHOLD),
     case byte_size(Packet) >= Threshold  of
-        true  -> Fun;
+        true  -> fun () ->
+                         Compressed = Fun(),
+                         case iolist_size(Compressed) < iolist_size(Packet) of
+                             true  -> Compressed;
+                             false -> Packet
+                         end
+                 end;
         false -> fun () -> Packet end
     end.
 
