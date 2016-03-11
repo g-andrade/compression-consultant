@@ -16,3 +16,5 @@ It receives 2 or more arguments:
 ```shell
 escript run_benchmarks.escript 10 session01.log session02.log
 ```
+
+Benchmark specifications hardcoded under the run_benchmarks/2 function near the top of the script; edit as needed.
