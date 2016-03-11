@@ -1,5 +1,5 @@
 # compression-consultant
-Determine ideal zlib parameters for captured data streams (WIP)
+Determine ideal zlib parameters for data streams based on captured examples (WIP)
 
 Compare any combination of the following:
 * stateless VS stateful
@@ -14,5 +14,5 @@ It receives 2 or more arguments:
 * Individual filenames with stream data messages encoded as unwrapped base64, one message per line
 
 ```shell
-escript run_benchmark.escript 10 session01.log session02.log
+escript run_benchmarks.escript 10 session01.log session02.log
 ```
